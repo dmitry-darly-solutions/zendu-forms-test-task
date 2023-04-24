@@ -1,0 +1,77 @@
+:host {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.submissions-wrapper {
+  display: flex;
+  flex-grow: 1;
+  margin-right: -40px;
+
+  .submissions-list {
+    max-height: 650px;
+    overflow-y: auto;
+  }
+
+  .submission {
+    padding: 16px;
+    border-radius: 4px;
+    max-width: 450px;
+    margin-bottom: 8px;
+    overflow-y: auto;
+
+    .submission-data {
+      max-width: 270px;
+
+      .row-info {
+        margin-bottom: 8px;
+      }
+
+      .address {
+        font-family: 'Roboto Bold';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 140%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .label {
+        font-family: 'Roboto Medium';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 130%;
+        margin-right: 8px;
+      }
+
+      .email {
+        font-family: 'Roboto Regular';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 130%;
+      }
+
+      .date {
+        font-family: 'Roboto Medium';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 130%;
+      }
+    }
+  }
+
+  .map-content {
+    padding-right: 0;
+  }
+}
+
+
+
+
+

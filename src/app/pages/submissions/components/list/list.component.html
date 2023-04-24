@@ -1,0 +1,87 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">
+      <input class="form-check-input" type="checkbox" value="">
+    </th>
+    <th scope="col">Task</th>
+    <th scope="col">Status</th>
+    <th scope="col">From</th>
+    <th scope="col">To</th>
+    <th scope="col">Customer Address</th>
+    <th scope="col">Due Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of listData">
+    <td>
+      <input class="form-check-input" type="checkbox" value="">
+    </td>
+    <td>{{row.task}}</td>
+    <td>
+      <div class="status border" [ngClass]="getStatusClass(row.status)">
+        <span class="status-mark" [ngClass]="getStatusMarkClass(row.status)"></span>
+        <span>{{row.status}}</span>
+      </div>
+    </td>
+    <td>{{row.from}}</td>
+    <td>{{row.to}}</td>
+    <td>{{row.customerAddress}}</td>
+    <td>{{row.dueDate}}</td>
+  </tr>
+  </tbody>
+</table>
+<div class="d-flex pagination-container justify-content-between align-items-center">
+  <div>{{numberOfElements}} of {{amount}} submissions</div>
+  <div>
+    <nav>
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" aria-label="Previous"
+             (click)="currentPage > 0 ? loadPage(currentPage - 1) : null"
+             [ngClass]="{'disabled': currentPage < 1}">
+            <span class="previous" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li *ngIf="currentPage !== 0" class="page-item" (click)="loadPage(0)">
+          <a class="page-link">1</a>
+        </li>
+        <li *ngIf="currentPage > 1 && currentPage < 3" class="page-item" (click)="loadPage(1)">
+          <a class="page-link">2</a>
+        </li>
+        <li class="page-item">
+        <li *ngIf="currentPage > 2" class="page-item">
+          <a class="page-link">...</a>
+        </li>
+        <li *ngIf="currentPage < pageLimit && currentPage > 2" class="page-item" (click)="loadPage(currentPage - 1)">
+          <a class="page-link">{{currentPage}}</a>
+        </li>
+        <li>
+          <a class="page-link current-page active-link">{{currentPage + 1}}</a>
+        </li>
+        <li *ngIf="currentPage + 2 < pageLimit" class="page-item" (click)="loadPage(currentPage + 1)">
+          <a class="page-link">{{currentPage + 2}}</a>
+        </li>
+        <li *ngIf="currentPage + 3 < pageLimit - 1" class="page-item">
+          <a class="page-link">...</a>
+        </li>
+        <li *ngIf="currentPage + 1 < pageLimit - 1 && currentPage + 3 < pageLimit"
+            (click)="loadPage(pageLimit - 2)"
+            class="page-item">
+          <a class="page-link">{{pageLimit - 1}}</a></li>
+        <li class="page-item">
+        <li *ngIf="currentPage + 1 < pageLimit"
+            (click)="loadPage(pageLimit - 1)"
+            class="page-item">
+          <a class="page-link">{{pageLimit}}</a></li>
+        <li class="page-item">
+          <a class="page-link" aria-label="Next"
+             (click)="currentPage < pageLimit ? loadPage(currentPage + 1) : null"
+             [ngClass]="{'disabled': currentPage + 1 === pageLimit}">
+            <span class="next" aria-hidden="true"></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

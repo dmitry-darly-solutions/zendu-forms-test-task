@@ -1,0 +1,39 @@
+<div class="row submissions-wrapper">
+  <div class="submissions-list col-4">
+    <div class="submission border border-status-grey d-flex justify-content-between" *ngFor="let row of listData">
+      <div class="submission-data">
+        <div class="address row-info">
+          {{row.customerAddress}}
+        </div>
+        <div class="row-info">
+          <span class="label text-status-gray">From:</span>
+          <span class="email">{{row.from}}</span>
+        </div>
+        <div class="row-info">
+          <span class="label text-status-gray">To:</span>
+          <span class="email">{{row.to}}</span>
+        </div>
+        <div>
+          <span class="label text-status-gray">Due Date:</span>
+          <span class="date text-status-red">{{row.dueDate}}</span>
+        </div>
+      </div>
+      <div>
+        <span class="status border" [ngClass]="getStatusClass(row.status)">
+          <span class="status-mark" [ngClass]="getStatusMarkClass(row.status)"></span>
+          <span>{{row.status}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-8 map-content" *ngIf="isApiLoaded">
+    <google-map width="100%" height="100%" [center]="markerPositions[0]">
+      <map-marker *ngFor="let markerPosition of markerPositions; let last = last;"
+                  [position]="markerPosition"
+                  [options]="markerOptions">
+      </map-marker>
+    </google-map>
+  </div>
+</div>
+
+

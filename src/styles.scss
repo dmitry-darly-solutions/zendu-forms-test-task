@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+$theme-colors: (
+  "blue-nav": #2188D9,
+  "blue-nav-selected": #1773BB,
+  "status-red": #FF3D00,
+  "status-green": #53D86A,
+  "status-green-bg": #D7E5DA,
+  "status-gray": #B8B9BC,
+  "status-gray-bg": #ECECED,
+  "black": #060C1B,
+);
+
+$body-bg: #FFFFFF;
+$body-color: #060C1B;
+
+@import "theme/fonts";
+@import "node_modules/bootstrap/scss/bootstrap";
+
+html,
+body {
+  height: 100%;
+}
+
+.page-title {
+  font-family: 'Roboto Bold';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 140%;
+  margin-bottom: 26px;
+}
+
+.status {
+  font-family: 'Roboto Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 4px;
+  padding: 4px 16px;
+  display: inline-block;
+
+  &.text-status-red {
+    background-color: rgba(255, 61, 0, 0.1);
+  }
+
+  &.text-status-green {
+    background-color: rgba(255, 61, 0, 0.1);
+  }
+
+  &.text-status-grey {
+    background-color: rgba(255, 61, 0, 0.1);
+  }
+
+  .status-mark {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+}

@@ -1,0 +1,63 @@
+<h1 class="page-title">Submissions</h1>
+<div class="filter d-flex justify-content-between align-items-center">
+  <div class="d-flex align-items-center">
+    <div class="search">
+      <img class="icon-search" src="assets/icons/search.svg">
+      <input type="text" class="border border-status-gray" placeholder="Search...">
+    </div>
+    <div class="dropdown" ngbDropdown>
+      <button class="btn btn-secondary dropdown-toggle bg-white text-black"
+              id="formDropdownMenuButton"
+              type="button"
+              data-toggle="dropdown"
+              ngbDropdownToggle>
+        {{selectedForm}}
+      </button>
+      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="formDropdownMenuButton" >
+        <a class="dropdown-item" *ngFor="let form of forms" (click)="selectedForm = form.title">{{form.title}}</a>
+      </div>
+    </div>
+    <div class="dropdown" ngbDropdown>
+      <button class="btn btn-secondary dropdown-toggle bg-white text-black"
+              id="statusDropdownMenuButton"
+              type="button"
+              data-toggle="dropdown"
+              ngbDropdownToggle>
+        {{selectedStatus}}
+      </button>
+      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="statusDropdownMenuButton" >
+        <a class="dropdown-item" *ngFor="let status of statuses" (click)="selectedStatus = status">{{status}}</a>
+      </div>
+    </div>
+    <div class="input-group">
+      <button class="btn btn-outline-status-gray bi bi-calendar3 btn-date-picker" (click)="d.toggle()" type="button"></button>
+      <input
+        class="border border-status-gray date-picker"
+        placeholder="dd/mm/yyy"
+        name="dp"
+        [(ngModel)]="date"
+        ngbDatepicker
+        #d="ngbDatepicker"
+      />
+    </div>
+  </div>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="btn-group border border-status-grey" role="group">
+      <button type="button"
+              class="btn"
+              [routerLink]="'/submissions/map'"
+              [ngClass]="{'btn-blue-nav text-white': currentTab === 'map'}">Map
+      </button>
+      <button type="button"
+              class="btn"
+              [routerLink]="'/submissions/list'"
+              [ngClass]="{'btn-blue-nav text-white': currentTab === 'list'}">List
+      </button>
+    </div>
+    <div class="export" (click)="export()">
+      <i class="text-white icon-paper-download"></i>
+      <span class="text-blue-nav">Export</span>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
