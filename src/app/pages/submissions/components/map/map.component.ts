@@ -19,7 +19,7 @@ export class MapComponent implements OnInit {
   limit = 10;
   markerOptions: google.maps.MarkerOptions = {
     draggable: false,
-    icon: '../assets/icons/marker.png'
+    icon: 'assets/icons/marker.png'
   };
   markerPositions: google.maps.LatLngLiteral[] = [];
 

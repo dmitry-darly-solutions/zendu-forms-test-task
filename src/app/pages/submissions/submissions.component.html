@@ -29,7 +29,7 @@
         <a class="dropdown-item" *ngFor="let status of statuses" (click)="selectedStatus = status">{{status}}</a>
       </div>
     </div>
-    <div class="input-group">
+    <div class="input-group date-picker-container">
       <button class="btn btn-outline-status-gray bi bi-calendar3 btn-date-picker" (click)="d.toggle()" type="button"></button>
       <input
         class="border border-status-gray date-picker"

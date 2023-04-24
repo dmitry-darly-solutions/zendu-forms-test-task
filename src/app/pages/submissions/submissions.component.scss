@@ -28,6 +28,10 @@
   border-bottom-left-radius: 4px;
 }
 
+.date-picker-container {
+ flex-wrap: nowrap;
+}
+
 .date-picker {
   border-left: 0 !important;
   border-top-right-radius: 4px;
